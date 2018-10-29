@@ -11,17 +11,25 @@ public class Solution {
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
         long count = 0;
-        long multiple = (n/s.length());
-        long leftOver = n % multiple;
-        for(int i=0; i<s.length(); i++) {
-            if(s.charAt(i) == 'a') {
-                count++;
+        if( n > s.length() ) {
+            long multiple = (n/s.length());
+            long leftOver = n % multiple;
+                for(int i=0; i<s.length(); i++) {
+                    if(s.charAt(i) == 'a') {
+                        count++;
+                    }
+             }
+            count *= multiple;
+            for(int i=0; i<leftOver; i++) {
+                if(s.charAt(i) == 'a') {
+                    count++;
+                }
             }
-        }
-        count *= multiple;
-        for(int i=0; i<leftOver; i++) {
-            if(s.charAt(i) == 'a') {
-                count++;
+        }else{
+            for(int i=0; i<n; i++) {
+                    if(s.charAt(i) == 'a') {
+                        count++;
+                    }
             }
         }
         return count;
